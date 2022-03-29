@@ -1,9 +1,17 @@
 const express = require('express')
 const app = express()
 const PORT = 3000
+app.set('view engine', 'ejs');
+
+const userList = ["Thomas","Charlotte", "Julien"]
+
 
 app.get('/', function(req , res){
-    res.send('Hello home page')
+    // res.sendFile(__dirname + '/public/index.html')
+    res.render('index', {
+        title: "FROM node express",
+        userList: userList
+    })
 })
 app.get('/thomas', function(req , res){
     res.send('Hello thomas the boss')
